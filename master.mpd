@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:mspr="urn:microsoft:playready" xmlns:cenc="urn:mpeg:cenc:2013" profiles="urn:hbbtv:dash:profile:isoff-live:2012,urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" availabilityStartTime="2018-07-10T13:06:35Z" minimumUpdatePeriod="PT2.02S" publishTime="2018-07-10T13:06:35Z" timeShiftBufferDepth="PT30.00S" minBufferTime="PT10.00S">
+  <Period id="0" start="PT0S">
+    <!--Video-->
+    <AdaptationSet id="0" maxWidth="406" maxHeight="720" maxFrameRate="30000/1001" segmentAlignment="true">
+      <SegmentTemplate availabilityTimeOffset="1.600" timescale="10000000" duration="20020000" startNumber="1" initialization="0_$RepresentationID$_init.mp4" media="0_$RepresentationID$_chunk_$Number$.mp4" />
+      <Representation id="video_00" mimeType="video/mp4" codecs="avc1.64001e" bandwidth="1000000" width="406" height="720" scanType="progressive" frameRate="30000/1001" sar="1:1" startWithSAP="1" />
+      <Representation id="video_01" mimeType="video/mp4" codecs="avc1.64000d" bandwidth="100000" width="226" height="404" scanType="progressive" frameRate="30000/1001" sar="1:1" startWithSAP="1" />
+      <Representation id="video_02" mimeType="video/mp4" codecs="avc1.64001e" bandwidth="700000" width="406" height="720" scanType="progressive" frameRate="30000/1001" sar="1:1" startWithSAP="1" />
+    </AdaptationSet>
+    <!--Audio-->
+    <AdaptationSet id="1" segmentAlignment="true">
+      <SegmentTemplate availabilityTimeOffset="1.600" timescale="375" duration="752" startNumber="1" initialization="1_$RepresentationID$_init.mp4" media="1_$RepresentationID$_chunk_$Number$.mp4" />
+      <Representation id="audio_03" mimeType="audio/mp4" codecs="mp4a.40.2" bandwidth="80000" audioSamplingRate="48000" startWithSAP="1">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+      </Representation>
+    </AdaptationSet>
+    <!--Audio-->
+    <AdaptationSet id="2" segmentAlignment="true">
+      <SegmentTemplate availabilityTimeOffset="1.600" timescale="375" duration="752" startNumber="1" initialization="2_$RepresentationID$_init.mp4" media="2_$RepresentationID$_chunk_$Number$.mp4" />
+      <Representation id="audio_04" mimeType="audio/mp4" codecs="mp4a.40.2" bandwidth="128000" audioSamplingRate="48000" startWithSAP="1">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>

@@ -2,7 +2,9 @@ package org.lantopia.androidthingskit
 
 import android.app.Activity
 import android.os.Bundle
-import com.google.android.things.pio.PeripheralManager
+import android.os.Handler
+import android.os.Looper
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Skeleton of an Android Things activity.
@@ -26,18 +28,29 @@ import com.google.android.things.pio.PeripheralManager
  */
 class MainActivity : Activity() {
     private lateinit var deviceController: DeviceController
+    private lateinit var recordToFile: RecordToFile
+
+    private lateinit var handler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        handler = Handler(Looper.getMainLooper())
+
         setContentView(R.layout.activity_main)
 
-        deviceController = DeviceController(PeripheralManager.getInstance())
+        closeButton.setOnClickListener { finish() }
+
+//        deviceController = DeviceController(PeripheralManager.getInstance())
+
+        recordToFile = RecordToFile("/sdcard/test.mp4")
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        deviceController.close()
+        recordToFile.close()
+
+//        deviceController.close()
     }
 }
